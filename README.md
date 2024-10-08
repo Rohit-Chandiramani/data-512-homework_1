@@ -137,3 +137,11 @@ To visualize the analysis of the rare diseases view counts across the timeframe,
 - `fewest_months_10_desktop_mobile.png` : shows pages that have the fewest months of available data the 10 articles with the fewest months of data for desktop access and the 10 articles with the fewest months of data for mobile access
 
 - `fewest_months_10_desktop_mobile_logscale.png` : shows pages that have the fewest months of available data the 10 articles with the fewest months of data for desktop access and the 10 articles with the fewest months of data for mobile access using the logarithmic scale for the views for better visualization of the titles with smaller values to prevent squashing of data points
+
+
+### Known Issues
+- The cleaned data present in the repository contains the title and links in the UTF-8 format. Hence, whle processing the fields we need to take care of the encoding format or to view the data using a text editor that is capable to viewing such encoded formats
+
+- While making calls to the Wikimedia /pageviews API, the titles are supposed to have spaces replaced with "_" and be URL encoded for processing 
+
+- There's no fixed limit on requests to the Wikimedia API, but your client may be blocked if you endanger the stability of the service. To stay within a safe request rate, wait for each request to finish before sending another request. Hence, it is recommended to have rate limits while accessing data from the public API. Refer `rare_disease_analysis.ipynb` for usage example
